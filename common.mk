@@ -19,6 +19,9 @@ COMMON_PATH := device/motorola/exynos9610-common
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/exynos9610-common/exynos9610-common-vendor.mk)
 
+# Dolby Atmos
+$(call inherit-product, vendor/dolby/dolby.mk)
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -78,6 +81,9 @@ PRODUCT_COPY_FILES += \
 TARGET_SCREEN_HEIGHT := 2520
 TARGET_SCREEN_WIDTH := 1080
 
+# Blur
+TARGET_ENABLE_BLUR := true
+
 # Boot Control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0 \
@@ -132,9 +138,9 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/keylayout/uinput-egis.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-egis.kl
 
 # FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+#PRODUCT_PACKAGES += \
+#    FMRadio \
+#    libfmjni
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -208,8 +214,8 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Livedisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.exynos9610
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@2.0-service.exynos9610
 
 # Media
 PRODUCT_PACKAGES += \
@@ -255,7 +261,10 @@ PRODUCT_PACKAGES += \
     libstagefright_softomx
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS +=  \
+    $(LOCAL_PATH)/overlay-baikalos \
+    $(COMMON_PATH)/overlay
+
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
 # Permissions
