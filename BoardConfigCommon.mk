@@ -24,6 +24,7 @@ include vendor/motorola/exynos9610-common/BoardConfigVendor.mk
 
 # BUILD_BROKEN_*
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_DUP_RULES := true
 
 ## A/B
 AB_OTA_UPDATER := true
@@ -139,10 +140,12 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2022-05-01
 
 ## SELinux
+SELINUX_IGNORE_NEVERALLOWS := true
 BOARD_SEPOLICY_TEE_FLAVOR := mobicore
 include device/lineage/sepolicy/exynos/sepolicy.mk
 include device/samsung_slsi/sepolicy/sepolicy.mk
 
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 
