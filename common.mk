@@ -35,6 +35,7 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier
 
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0.vendor \
@@ -65,6 +66,18 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(COMMON_PATH)/configs/audio/mixer_paths.retin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.retin.xml \
     $(COMMON_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+
+# Spatial Audio: optimize spatializer effect
+PRODUCT_PROPERTY_OVERRIDES += \
+       audio.spatializer.effect.util_clamp_min=300
+
+# Spatial Audio: declare use of spatial audio
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.audio.spatializer_enabled=true \
+       ro.audio.headtracking_enabled=true \
+       ro.audio.spatializer_transaural_enabled_default=false \
+       ro.audio.spatializer_binaural_enabled_default=false \
+       persist.vendor.audio.spatializer.speaker_enabled=true
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -214,8 +227,8 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Livedisplay
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.livedisplay@2.0-service.exynos9610
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service.exynos9610
 
 # Media
 PRODUCT_PACKAGES += \
