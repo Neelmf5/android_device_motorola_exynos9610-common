@@ -194,6 +194,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
+# Baikal Init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/bin/init.baikal.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.baikal.post_boot.sh
+
 # init
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/init/carrier/init.default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/carrier/init.default.rc \
@@ -434,3 +438,8 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# Call recording for Google Dialer
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
+
