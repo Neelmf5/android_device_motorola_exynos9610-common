@@ -194,9 +194,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
-# Baikal Init
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/bin/init.baikal.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.baikal.post_boot.sh
 
 # init
 PRODUCT_COPY_FILES += \
