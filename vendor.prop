@@ -107,3 +107,6 @@ wifi.interface=wlan0
 
 # Zygote
 zygote.critical_window.minute=10
+
+# GFX
+ro.config.avoid_gfx_accel=true
