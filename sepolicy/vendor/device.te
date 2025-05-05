@@ -19,3 +19,4 @@ type utags_block_device, dev_type;
 type vendor_block_device, dev_type;
 type vendor_nanohub_device, dev_type;
 type vendor_secmem_device, dev_type;
+type dtbo_block_device, dev_type;
