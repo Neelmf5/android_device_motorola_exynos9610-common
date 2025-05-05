@@ -16,6 +16,9 @@
 
 COMMON_PATH := device/motorola/exynos9610-common
 
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/exynos9610-common/exynos9610-common-vendor.mk)
 
@@ -135,8 +138,8 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
 
 # FastCharge
-PRODUCT_PACKAGES += \
-    vendor.lineage.fastcharge@1.0-service.samsung
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.fastcharge@1.0-service.samsung
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -149,9 +152,9 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/keylayout/uinput-egis.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-egis.kl
 
 # FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+#PRODUCT_PACKAGES += \
+#    FMRadio \
+#    libfmjni
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -233,12 +236,12 @@ PRODUCT_PACKAGES += \
     android.hardware.light-service.samsung
 
 # Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.health-service.default
 
 # Livedisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.exynos9610
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@2.0-service.exynos9610
 
 # Media
 PRODUCT_PACKAGES += \
@@ -441,6 +444,7 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.exynos9610
 
 # VNDK
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
 PRODUCT_PACKAGES += \
     libutils-v32
 
