@@ -59,3 +59,5 @@ media.settings.xml=/vendor/etc/media_profiles_vendor_V1.xml
 persist.vendor.lte.pco_supported=true
 persist.dbg.volte_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
+# GFX
+ro.config.avoid_gfx_accel=true
