@@ -90,6 +90,7 @@ PRODUCT_PACKAGES += \
     libbt-vendor
 
 # Boot animation
+TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 TARGET_SCREEN_HEIGHT := 2520
@@ -106,8 +107,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    libsensorndkbridge \
-    Snap
+    libsensorndkbridge
 
 # configstore
 PRODUCT_PACKAGES += \
@@ -189,9 +189,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.exynos9610
 
-# MotoActions
+# LineageActions
 PRODUCT_PACKAGES += \
-    MotoActions
+    LineageActions
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -283,6 +283,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # ril
 PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.0 \
@@ -352,3 +356,6 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
     $(COMMON_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# Reduce system image size by limiting java debug info.
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
