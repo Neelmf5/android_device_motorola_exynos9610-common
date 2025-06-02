@@ -46,7 +46,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Extracted with libbootimg
-BOARD_KERNEL_CMDLINE := loop.max_part=7
+BOARD_KERNEL_CMDLINE := loop.max_part=7 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x00000000
@@ -88,13 +88,13 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery.fstab
-TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
 
 # Security
-VENDOR_SECURITY_PATCH := 2020-11-01
+VENDOR_SECURITY_PATCH := 2020-09-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -139,9 +139,6 @@ TARGET_FS_CONFIG_GEN += $(COMMON_PATH)/config.fs
 
 # Manifest
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
-
-# Display
-TARGET_SCREEN_DENSITY := 480
 
 # Inherit from the proprietary version
 -include vendor/motorola/exynos9610-common/BoardConfigVendor.mk
